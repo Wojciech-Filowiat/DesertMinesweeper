@@ -30,12 +30,11 @@ namespace DesertMinesweeper
             comboBox1.Items.Add("Islands");
             comboBox1.Items.Add("Classic");
             comboBox1.Items.Add("Ocean");
+            comboBox1.Items.Add("Meadow");
             comboBox1.SelectedIndex = style;
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            //button1.BackColor = Color.FromArgb(255, 215, 0);
             button1.FlatStyle = FlatStyle.Flat;
-            //button1.FlatAppearance.BorderColor = Color.FromArgb(255, 140, 0);
             button1.FlatAppearance.BorderSize = 2;
             SetGraphics();
 
@@ -149,6 +148,7 @@ namespace DesertMinesweeper
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             graphicsStyle = comboBox1.SelectedIndex;
+            this.ActiveControl = null;
             SetGraphics();
         }
 
@@ -188,6 +188,10 @@ namespace DesertMinesweeper
                 case 5:
                     allImages = new Bitmap(Properties.Resources.ocean);
                     this.Icon = Properties.Resources.icon_5;
+                    break;
+                case 6:
+                    allImages = new Bitmap(Properties.Resources.meadow);
+                    this.Icon = Properties.Resources.icon_6;
                     break;
                 default:
                     allImages = new Bitmap(Properties.Resources.desert);

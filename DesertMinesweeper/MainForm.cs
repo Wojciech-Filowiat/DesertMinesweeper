@@ -25,9 +25,6 @@ namespace DesertMinesweeper
 
         int graphicsStyle;
         Image[] gameGraphics;
-        /*Color backColor;
-        Color buttonColor;
-        Color edgeColor;*/
 
         public MainForm()
         {
@@ -427,6 +424,10 @@ namespace DesertMinesweeper
                     allImages = new Bitmap(Properties.Resources.ocean);
                     this.Text = "Ocean Minesweeper";
                     break;
+                case 6:
+                    allImages = new Bitmap(Properties.Resources.meadow);
+                    this.Text = "Meadow Minesweeper";
+                    break;
                 default:
                     allImages = new Bitmap(Properties.Resources.desert);
                 break;
@@ -465,6 +466,9 @@ namespace DesertMinesweeper
                     break;
                 case 5:
                     this.Icon = Properties.Resources.icon_5;
+                    break;
+                case 6:
+                    this.Icon = Properties.Resources.icon_6;
                     break;
             }
 

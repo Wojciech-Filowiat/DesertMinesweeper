@@ -151,11 +151,31 @@ namespace DesertMinesweeper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon icon_6 {
+            get {
+                object obj = ResourceManager.GetObject("icon_6", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap islands {
             get {
                 object obj = ResourceManager.GetObject("islands", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap meadow {
+            get {
+                object obj = ResourceManager.GetObject("meadow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

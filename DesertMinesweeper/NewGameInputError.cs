@@ -19,10 +19,7 @@ namespace DesertMinesweeper
             InitializeComponent();
 
             graphicsStyle = style;
-
-            //button1.BackColor = Color.FromArgb(255, 215, 0);
             button1.FlatStyle = FlatStyle.Flat;
-            //button1.FlatAppearance.BorderColor = Color.FromArgb(255, 140, 0);
             button1.FlatAppearance.BorderSize = 2;
 
             this.CenterToParent();
@@ -85,6 +82,10 @@ namespace DesertMinesweeper
                 case 5:
                     allImages = new Bitmap(Properties.Resources.ocean);
                     this.Icon = Properties.Resources.icon_5;
+                    break;
+                case 6:
+                    allImages = new Bitmap(Properties.Resources.meadow);
+                    this.Icon = Properties.Resources.icon_6;
                     break;
                 default:
                     allImages = new Bitmap(Properties.Resources.desert);
