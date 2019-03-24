@@ -42,13 +42,13 @@ namespace DesertMinesweeper
                 case 2:
                     return Color.FromArgb(255, 255, 255, 255);
                 case 3:
-                    return Color.FromArgb(255, 255, 242, 0);
+                    return Color.FromArgb(255, 5, 138, 238);
                 case 4:
                     return Color.FromArgb(255, 200, 200, 200);
                 case 5:
                     return Color.FromArgb(255, 5, 138, 238);
                 case 6:
-                    return Color.FromArgb(255, 255, 242, 0);
+                    return Color.FromArgb(255, 0, 190, 0);
                 default:
                     return Color.FromArgb(255, 255, 215, 0);
             }
@@ -65,13 +65,13 @@ namespace DesertMinesweeper
                 case 2:
                     return Color.FromArgb(255, 163, 224, 239);
                 case 3:
-                    return Color.FromArgb(255, 255, 201, 14);
+                    return Color.FromArgb(255, 4, 117, 200);
                 case 4:
                     return Color.FromArgb(255, 150, 150, 150);
                 case 5:
                     return Color.FromArgb(255, 4, 117, 200);
                 case 6:
-                    return Color.FromArgb(255, 255, 224, 16);
+                    return Color.FromArgb(255, 0, 150, 0);
                 default:
                     return Color.FromArgb(255, 255, 140, 0);
             }
