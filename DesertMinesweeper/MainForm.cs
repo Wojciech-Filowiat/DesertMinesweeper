@@ -23,7 +23,7 @@ namespace DesertMinesweeper
         bool gameFinished;
         bool isFirstMove;
 
-        int graphicsStyle;
+        GraphicsStyle graphicsStyle;
         Image[] gameGraphics;
 
         public MainForm()
@@ -307,7 +307,7 @@ namespace DesertMinesweeper
                     width = lform.GetWidth;
                     height = lform.GetHeight;
                     maxbombs = lform.GetBombs;
-                    int style = lform.GetGraphicsStyle;
+                    GraphicsStyle style = lform.GetGraphicsStyle;
                     
                     ChangeGraphicsStyle(style);
                     NewGame();
@@ -393,45 +393,13 @@ namespace DesertMinesweeper
             }
         }
 
-        private void ChangeGraphicsStyle(int style)
+        private void ChangeGraphicsStyle(GraphicsStyle style)
         {
             graphicsStyle = style;
-            Bitmap allImages;
             
-            switch (style)
-            {
-                case 0:
-                    allImages = new Bitmap(Properties.Resources.desert);
-                    this.Text = "Desert Minesweeper";
-                    break;
-                case 1:
-                    allImages = new Bitmap(Properties.Resources.icefield);
-                    this.Text = "Icefield Minesweeper";
-                    break;
-                case 2:
-                    allImages = new Bitmap(Properties.Resources.snowfield);
-                    this.Text = "Snowfield Minesweeper";
-                    break;
-                case 3:
-                    allImages = new Bitmap(Properties.Resources.islands);
-                    this.Text = "Islands Minesweeper";
-                    break;
-                case 4:
-                    allImages = new Bitmap(Properties.Resources.classic);
-                    this.Text = "Classic Minesweeper";
-                    break;
-                case 5:
-                    allImages = new Bitmap(Properties.Resources.ocean);
-                    this.Text = "Ocean Minesweeper";
-                    break;
-                case 6:
-                    allImages = new Bitmap(Properties.Resources.meadow);
-                    this.Text = "Meadow Minesweeper";
-                    break;
-                default:
-                    allImages = new Bitmap(Properties.Resources.desert);
-                break;
-            }
+
+            Bitmap allImages = GraphicsController.GetAllImages(graphicsStyle);
+           
             for (int i = 0; i < 4; i++ )
             {
                 for (int j = 0; j < 4; j++)
@@ -439,49 +407,17 @@ namespace DesertMinesweeper
                     gameGraphics[4 * i + j] = allImages.Clone(new Rectangle(j * FIELD_SIZE, i * FIELD_SIZE, FIELD_SIZE, FIELD_SIZE), allImages.PixelFormat);
                 }
             }
+
+            this.Text = GraphicsController.GetTitle(graphicsStyle);
+            this.Icon = GraphicsController.GetIcon(graphicsStyle);
+            this.BackgroundImage = GraphicsController.GetBackground(graphicsStyle, FIELD_SIZE);
+            this.BackColor = GraphicsController.GetBackgroundColor(graphicsStyle);
             this.BackgroundImage = gameGraphics[0];
-            RefreshControlsGraphics();
-
-
+            newGameButton.BackColor = GraphicsController.GetButtonColor(graphicsStyle);
+            newGameButton.FlatAppearance.BorderColor = GraphicsController.GetEdgeColor(graphicsStyle);
+            restartButton.BackColor = GraphicsController.GetButtonColor(graphicsStyle);
+            restartButton.FlatAppearance.BorderColor = GraphicsController.GetEdgeColor(graphicsStyle);
+            
         }
-
-        private void RefreshControlsGraphics()
-        {
-            switch (graphicsStyle)
-            {
-                case 0:
-                    this.Icon = Properties.Resources.icon_0;
-                    break;
-                case 1:
-                    this.Icon = Properties.Resources.icon_1;
-                    break;
-                case 2:
-                    this.Icon = Properties.Resources.icon_2;
-                    break;
-                case 3:
-                    this.Icon = Properties.Resources.icon_3;
-                    break;
-                case 4:
-                    this.Icon = Properties.Resources.icon_4;
-                    break;
-                case 5:
-                    this.Icon = Properties.Resources.icon_5;
-                    break;
-                case 6:
-                    this.Icon = Properties.Resources.icon_6;
-                    break;
-            }
-
-            newGameButton.BackColor = ControlsColors.GetButtonColor(graphicsStyle);
-            newGameButton.FlatAppearance.BorderColor = ControlsColors.GetEdgeColor(graphicsStyle);
-            restartButton.BackColor = ControlsColors.GetButtonColor(graphicsStyle);
-            restartButton.FlatAppearance.BorderColor = ControlsColors.GetEdgeColor(graphicsStyle);
-            this.BackColor = ControlsColors.GetBackgroundColor(graphicsStyle);
-            this.BackgroundImage = gameGraphics[0];
-
-
-        }
-
-
     }
 }

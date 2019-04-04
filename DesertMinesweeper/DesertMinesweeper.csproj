@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControlsColors.cs" />
+    <Compile Include="GraphicsController.cs" />
+    <Compile Include="GraphicsStyle.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

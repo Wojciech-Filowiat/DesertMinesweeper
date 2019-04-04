@@ -11,10 +11,10 @@ namespace DesertMinesweeper
 {
     public partial class NewGameForm : Form
     {
-        int graphicsStyle;
+        GraphicsStyle graphicsStyle;
         const int FIELD_SIZE = 14;
 
-        public NewGameForm(int wid, int hei, int bom, int style)
+        public NewGameForm(int wid, int hei, int bom, GraphicsStyle style)
         {
             InitializeComponent();
 
@@ -31,7 +31,7 @@ namespace DesertMinesweeper
             comboBox1.Items.Add("Classic");
             comboBox1.Items.Add("Ocean");
             comboBox1.Items.Add("Meadow");
-            comboBox1.SelectedIndex = style;
+            comboBox1.SelectedIndex = (int)style;
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
 
             button1.FlatStyle = FlatStyle.Flat;
@@ -58,9 +58,9 @@ namespace DesertMinesweeper
             get { return Convert.ToInt32(bombsBox.Text); }
         }
 
-        public int GetGraphicsStyle
+        public GraphicsStyle GetGraphicsStyle
         {
-            get { return comboBox1.SelectedIndex; }
+            get { return (GraphicsStyle)comboBox1.SelectedIndex; }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -147,58 +147,22 @@ namespace DesertMinesweeper
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            graphicsStyle = comboBox1.SelectedIndex;
+            graphicsStyle = (GraphicsStyle)comboBox1.SelectedIndex;
             this.ActiveControl = null;
             SetGraphics();
         }
 
         private void SetGraphics()
         {
-            button1.BackColor = ControlsColors.GetButtonColor(graphicsStyle);
-            button1.FlatAppearance.BorderColor = ControlsColors.GetEdgeColor(graphicsStyle);
-            widthBox.BackColor = ControlsColors.GetBackgroundColor(graphicsStyle);
-            heightBox.BackColor = ControlsColors.GetBackgroundColor(graphicsStyle);
-            bombsBox.BackColor = ControlsColors.GetBackgroundColor(graphicsStyle);
-            comboBox1.BackColor = ControlsColors.GetBackgroundColor(graphicsStyle);
-            this.BackColor = ControlsColors.GetBackgroundColor(graphicsStyle);
-
-            Bitmap allImages;
-            switch (graphicsStyle)
-            {
-                case 0:
-                    allImages = new Bitmap(Properties.Resources.desert);
-                    this.Icon = Properties.Resources.icon_0;
-                    break;
-                case 1:
-                    allImages = new Bitmap(Properties.Resources.icefield);
-                    this.Icon = Properties.Resources.icon_1;
-                    break;
-                case 2:
-                    allImages = new Bitmap(Properties.Resources.snowfield);
-                    this.Icon = Properties.Resources.icon_2;
-                    break;
-                case 3:
-                    allImages = new Bitmap(Properties.Resources.islands);
-                    this.Icon = Properties.Resources.icon_3;
-                    break;
-                case 4:
-                    allImages = new Bitmap(Properties.Resources.classic);
-                    this.Icon = Properties.Resources.icon_4;
-                    break;
-                case 5:
-                    allImages = new Bitmap(Properties.Resources.ocean);
-                    this.Icon = Properties.Resources.icon_5;
-                    break;
-                case 6:
-                    allImages = new Bitmap(Properties.Resources.meadow);
-                    this.Icon = Properties.Resources.icon_6;
-                    break;
-                default:
-                    allImages = new Bitmap(Properties.Resources.desert);
-                    this.Icon = Properties.Resources.icon_0;
-                    break;
-            }
-            this.BackgroundImage = allImages.Clone(new Rectangle(0, 0, FIELD_SIZE, FIELD_SIZE), allImages.PixelFormat);
+            button1.BackColor = GraphicsController.GetButtonColor(graphicsStyle);
+            button1.FlatAppearance.BorderColor = GraphicsController.GetEdgeColor(graphicsStyle);
+            widthBox.BackColor = GraphicsController.GetBackgroundColor(graphicsStyle);
+            heightBox.BackColor = GraphicsController.GetBackgroundColor(graphicsStyle);
+            bombsBox.BackColor = GraphicsController.GetBackgroundColor(graphicsStyle);
+            comboBox1.BackColor = GraphicsController.GetBackgroundColor(graphicsStyle);
+            this.BackColor = GraphicsController.GetBackgroundColor(graphicsStyle);
+            this.Icon = GraphicsController.GetIcon(graphicsStyle);
+            this.BackgroundImage = GraphicsController.GetBackground(graphicsStyle, FIELD_SIZE);
         }
     }
 }
