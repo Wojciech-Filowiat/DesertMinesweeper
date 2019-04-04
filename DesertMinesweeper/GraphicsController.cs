@@ -106,13 +106,13 @@ namespace DesertMinesweeper
                 case GraphicsStyle.Snowfield:
                     return Color.FromArgb(255, 255, 255, 255);
                 case GraphicsStyle.Islands:
-                    return Color.FromArgb(255, 115, 194, 251);
+                    return Color.FromArgb(255, 67, 210, 249);
                 case GraphicsStyle.Classic:
-                    return Color.FromArgb(255, 220, 220, 220);
+                    return Color.FromArgb(255, 230, 230, 230);
                 case GraphicsStyle.Ocean:
-                    return Color.FromArgb(255, 115, 194, 251);
+                    return Color.FromArgb(255, 67, 210, 249);
                 case GraphicsStyle.Meadow:
-                    return Color.FromArgb(255, 166, 213, 23);
+                    return Color.FromArgb(255, 158, 202, 22);
                 default:
                     return Color.FromArgb(255, 255, 215, 0);
             }
@@ -129,13 +129,13 @@ namespace DesertMinesweeper
                 case GraphicsStyle.Snowfield:
                     return Color.FromArgb(255, 255, 255, 255);
                 case GraphicsStyle.Islands:
-                    return Color.FromArgb(255, 5, 138, 238);
+                    return Color.FromArgb(255, 60, 188, 223);
                 case GraphicsStyle.Classic:
                     return Color.FromArgb(255, 200, 200, 200);
                 case GraphicsStyle.Ocean:
-                    return Color.FromArgb(255, 5, 138, 238);
+                    return Color.FromArgb(255, 60, 188, 223);
                 case GraphicsStyle.Meadow:
-                    return Color.FromArgb(255, 0, 190, 0);
+                    return Color.FromArgb(255, 158, 202, 22);
                 default:
                     return Color.FromArgb(255, 255, 215, 0);
             }
@@ -152,13 +152,13 @@ namespace DesertMinesweeper
                 case GraphicsStyle.Snowfield:
                     return Color.FromArgb(255, 163, 224, 239);
                 case GraphicsStyle.Islands:
-                    return Color.FromArgb(255, 4, 117, 200);
+                    return Color.FromArgb(255, 56, 175, 208);
                 case GraphicsStyle.Classic:
                     return Color.FromArgb(255, 150, 150, 150);
                 case GraphicsStyle.Ocean:
-                    return Color.FromArgb(255, 4, 117, 200);
+                    return Color.FromArgb(255, 56, 175, 208);
                 case GraphicsStyle.Meadow:
-                    return Color.FromArgb(255, 0, 150, 0);
+                    return Color.FromArgb(255, 127, 163, 18);
                 default:
                     return Color.FromArgb(255, 255, 140, 0);
             }
